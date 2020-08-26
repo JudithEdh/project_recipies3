@@ -6,7 +6,7 @@ target/
 .mvn
 mvnw
 mvnw.cnd
-notes.iml
+project_recipies.iml
 ### STS ###
 .apt_generated
 .classpath
