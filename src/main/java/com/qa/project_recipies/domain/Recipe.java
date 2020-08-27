@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Recipes {
+public class Recipe {
 
     @Id
     @GeneratedValue
@@ -18,10 +18,10 @@ public class Recipes {
     @Column
     private String procedure;
 
-    public Recipes() {
+    public Recipe() {
     }
 
-    public Recipes(String name, String procedure) {
+    public Recipe(String name, String procedure) {
         this.name = name;
         this.procedure = procedure;
     }
@@ -34,19 +34,19 @@ public class Recipes {
         this.id = id;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getprocedure() {
+    public String getProcedure() {
         return procedure;
     }
 
-    public void setprocedure(String procedure) {
+    public void setProcedure(String procedure) {
         this.procedure = procedure;
     }
 
