@@ -1,9 +1,8 @@
 package com.qa.project_recipies.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Recipe {
@@ -17,6 +16,9 @@ public class Recipe {
 
     @Column
     private String procedure;
+
+    @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY)
+    private List<Ingredient> ingredients = new ArrayList<>();
 
     public Recipe() {
     }
