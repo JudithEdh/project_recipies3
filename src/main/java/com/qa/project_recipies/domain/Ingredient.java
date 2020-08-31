@@ -3,6 +3,7 @@ package com.qa.project_recipies.domain;
 import javax.persistence.*;
 
 @Entity
+
 public class Ingredient {
 
     @Id
