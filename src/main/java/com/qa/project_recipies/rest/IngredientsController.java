@@ -19,6 +19,7 @@ public class IngredientsController {
 
     @Autowired
     public IngredientsController(IngredientsService ingredientsService){
+
         this.ingredientsService=ingredientsService;
     }
 
@@ -28,14 +29,14 @@ public class IngredientsController {
     }
     @PostMapping("/createIngredient")
     public ResponseEntity<IngredientDTO> createIngredient(@RequestBody Ingredient ingredient){
-        return new ResponseEntity<IngredientDTO>(this.ingredientsService.createIngredient(ingredient));
+        return new ResponseEntity<IngredientDTO>(this.ingredientsService.createIngredient(ingredient), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/deleteIngredient/{id}")
     public ResponseEntity<?> deleteIngredient(@PathVariable Long id){
-        return this.ingredientsService.deleteIngredientsById(id);
-            ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
-            : ResponseEntity.noContent().build();
+        return this.ingredientsService.deleteIngredientsById(id)
+                ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+                : ResponseEntity.noContent().build();
     }
 
     @GetMapping("/getIngredientById/{id}")
