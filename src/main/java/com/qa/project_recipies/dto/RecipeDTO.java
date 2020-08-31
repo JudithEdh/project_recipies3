@@ -11,9 +11,10 @@ public class RecipeDTO {
     private List<IngredientDTO> ingredients= new ArrayList<>();
 
     public RecipeDTO(){}
-    public RecipeDTO(String name){
+    public RecipeDTO(String name, String procedure){
         super();
         this.name=name;
+        this.procedure=procedure;
     }
     public Long getId() {
         return id;
@@ -30,9 +31,17 @@ public class RecipeDTO {
         this.name = name;
     }
 
+    public void setProcedure(String procedure) {
+        this.procedure = procedure;
+    }
+    public String getProcedure() {
+        return procedure;
+    }
+
     public List<IngredientDTO> getIngredients(){
         return ingredients;
     }
+
     public void setIngredients(List<IngredientDTO> ingredients){
         this.ingredients=ingredients;
     }
