@@ -20,7 +20,7 @@ public class Recipe {
     @Column
     private String procedure;
 
-    @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "recipe", fetch = FetchType.EAGER)
     private List<Ingredient> ingredients = new ArrayList<>();
 
     public Recipe() {
