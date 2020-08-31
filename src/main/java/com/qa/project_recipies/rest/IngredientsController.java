@@ -3,8 +3,11 @@ package com.qa.project_recipies.rest;
 
 import com.qa.project_recipies.domain.Ingredient;
 
+import com.qa.project_recipies.dto.IngredientDTO;
 import com.qa.project_recipies.service.IngredientsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,27 +23,29 @@ public class IngredientsController {
     }
 
     @GetMapping("/ingredients")
-    public List<Ingredient> getAllIngredients(){
-        return this.ingredientsService.readAllIngredients();
+    public ResponseEntity<List<IngredientDTO>> getAllIngredients(){
+        return ResponseEntity.ok(this.ingredientsService.readAllIngredients());
     }
     @PostMapping("/createIngredient")
-    public Ingredient createIngredient(@RequestBody Ingredient ingredient){
-        return this.ingredientsService.createIngredient(ingredient);
+    public ResponseEntity<IngredientDTO> createIngredient(@RequestBody Ingredient ingredient){
+        return new ResponseEntity<IngredientDTO>(this.ingredientsService.createIngredient(ingredient));
     }
 
     @DeleteMapping("/deleteIngredient/{id}")
-    public Boolean deleteIngredient(@PathVariable Long id){
+    public ResponseEntity<?> deleteIngredient(@PathVariable Long id){
         return this.ingredientsService.deleteIngredientsById(id);
+            ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+            : ResponseEntity.noContent().build();
     }
 
     @GetMapping("/getIngredientById/{id}")
-    public Ingredient getIngredientById(@PathVariable Long id){
-        return this.ingredientsService.findIngredientById(id);
+    public ResponseEntity<IngredientDTO> getIngredientById(@PathVariable Long id){
+        return ResponseEntity.ok(this.ingredientsService.findIngredientById(id));
     }
 
     @PutMapping("/updateIngredient/{id}")
-    public Ingredient updateIngredient(@PathVariable Long id, @RequestBody Ingredient ingredient){
-        return this.ingredientsService.updateIngredient(id, ingredient);
+    public ResponseEntity<IngredientDTO> updateIngredient(@PathVariable Long id, @RequestBody Ingredient ingredient){
+        return ResponseEntity.ok(this.ingredientsService.updateIngredient(id, ingredient));
     }
 
 }
