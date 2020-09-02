@@ -89,3 +89,17 @@ function submitRecipe(){
   req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   req.send(JSON.stringify({ recipe: obj.recipe, name: obj.name, procedure: obj.procedure }));
 }
+function deleteRecipe(){
+  let elements = document.getElementById("deleteRecipe").elements;
+  let obj ={};
+  for(let i = 0 ; i < elements.length - 1 ; i++){
+    let item = elements.item(i);
+    obj[item.name] = item.value;
+  }
+
+  const req = new XMLHttpRequest();
+let x=obj.id;
+ req.open("DELETE", ('http://localhost:8080/deleteRecipeById?id='+x));
+ req.send();
+
+}
