@@ -19,7 +19,7 @@ jobs:
     steps:
       - run:
           name: Clone Repo & Install Application Dependencies
-          command: ssh $SSH_USER@$SSH_HOST "https://github.com/JudithEdh/QA-Fundamental_Project"
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project"
       - run:
           name: Deploy Application
           command: ssh $SSH_USER@$SSH_HOST "cd ~/ProjectRecipiesApplication"
