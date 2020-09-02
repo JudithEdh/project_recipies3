@@ -11,7 +11,7 @@ public class Ingredient {
     private Long id;
 
     @Column
-    private String ingredient;
+    private String name;
 
     @Column
     private String quantity;
@@ -22,8 +22,8 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String ingredient, String quantity) {
-        this.ingredient = ingredient;
+    public Ingredient(String name, String quantity) {
+        this.name = name;
         this.quantity = quantity;
     }
 
@@ -35,12 +35,12 @@ public class Ingredient {
         this.id = id;
     }
 
-    public String getIngredient() {
-        return ingredient;
+    public String getName() {
+        return name;
     }
 
-    public void setIngredient(String ingredient) {
-        this.ingredient = ingredient;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getQuantity() {

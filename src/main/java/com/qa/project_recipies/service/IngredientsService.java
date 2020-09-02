@@ -40,7 +40,7 @@ public class IngredientsService {
 
     public IngredientDTO updateIngredient(Long id, Ingredient ingredient){
         Ingredient update=this.repo.findById(id).orElseThrow(IngredientNotFoundException::new);
-        update.setIngredient(ingredient.getIngredient());
+        update.setName(ingredient.getName());
         update.setQuantity(ingredient.getQuantity());
         return this.mapToDTO(this.repo.save(update));
     }

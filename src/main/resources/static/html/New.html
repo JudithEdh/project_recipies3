@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Ingredient</title>
+    <script src="../json/homepage.js"></script>
+</head>
+<body>
+<a href="Homepage.html">Homepage</a>
+
+<h1>Add a new ingredient to your recipe</h1>
+
+<form id="ingredientsForm">
+    <label for="ingredient">Ingredient:</label><br>
+    <input type="text" id="ingredient" name="ingredient"><br>
+    <label for="quantity">Quantity:</label><br>
+    <input type="text" id="quantity" name="quantity"><br><br>
+    <label for="recipeId">Recipe ID:</label><br>
+    <input type="text" id="recipeId" name="recipeId"><br><br>
+    <input type="submit" onclick="submitIngredient()" value="Submit">
+</form>
+
+
+
+</body>
+</html>

@@ -3,12 +3,12 @@ package com.qa.project_recipies.dto;
 public class IngredientDTO {
 
     private Long id;
-    private String ingredient;
+    private String name;
     private String quantity;
 
     public IngredientDTO(){}
-    public IngredientDTO(String ingredient, String quantity){
-        this.ingredient=ingredient;
+    public IngredientDTO(String name, String quantity){
+        this.name=name;
         this.quantity=quantity;
     }
     public Long getId(){
@@ -17,11 +17,11 @@ public class IngredientDTO {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getIngredient(){
-        return ingredient;
+    public String getName(){
+        return name;
     }
-    public void setIngredient(String ingredient){
-        this.ingredient=ingredient;
+    public void setName(String name){
+        this.name=name;
     }
     public String getQuantity(){
         return quantity;
