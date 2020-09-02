@@ -19,8 +19,12 @@ function displayRecipes(){
           let elem = document.createElement('div');
           let header = document.createElement('h1');
           header.textContent = "Recipe name: " + el.name;
-
           elem.appendChild(header);
+
+          let procedure=document.createElement('p');
+          procedure.textContent = "Procedure: " + el.procedure;
+          elem.appendChild(procedure);
+
           el.ingredients.forEach(ingredient => {
             console.log(ingredient) // print all ingredients for each recipe
             let name = document.createElement('p');
@@ -63,5 +67,25 @@ function submitIngredient(){
     }
   };
   req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  req.send(JSON.stringify({ ingredient: obj.ingredient, quantity: obj.quantity, recipe:{ id: Number(obj.recipeId)} }));
+  req.send(JSON.stringify({ name: obj.name, quantity: obj.quantity, recipe:{ id: Number(obj.recipeId)} }));
+}
+function submitRecipe(){
+  let elements = document.getElementById("recipesForm").elements;
+  let obj ={};
+  for(let i = 0 ; i < elements.length - 1 ; i++){
+    let item = elements.item(i);
+    obj[item.name] = item.value;
+  }
+
+  const req = new XMLHttpRequest();
+  req.open("POST", "http://localhost:8080/createRecipe");
+  req.onload = () => {
+    if (req.status === 200 && req.readyState == 4) {
+      console.log("Server Responded with: " + req.responseText);
+    } else {
+      console.log("Oops...");
+    }
+  };
+  req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  req.send(JSON.stringify({ recipe: obj.recipe, name: obj.name, procedure: obj.procedure }));
 }
