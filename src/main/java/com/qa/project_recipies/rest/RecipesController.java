@@ -45,8 +45,8 @@ public class RecipesController {
         return ResponseEntity.ok(this.recipesService.findRecipeById(id));
     }
 
-    @PutMapping("/updateRecipe/{id}")
-    public ResponseEntity<RecipeDTO> updateRecipe(@PathVariable Long id, @RequestBody Recipe recipe){
+    @PutMapping("/updateRecipe")
+    public ResponseEntity<RecipeDTO> updateRecipe(@PathParam("id") Long id, @RequestBody Recipe recipe){
         return ResponseEntity.ok(this.recipesService.updateRecipe(id, recipe));
     }
 
