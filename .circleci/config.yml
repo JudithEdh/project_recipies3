@@ -6,7 +6,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 2.1
 jobs:
   test:
     machine:
@@ -19,21 +19,26 @@ jobs:
     steps:
     - run:
           name: Update apt
-          command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update"
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt update"
+
     - run:
           name: Install JDK
           command: ssh $SSH_USER@$SSH_HOST "sudo apt install openjdk-8-jdk -y"
     - run:
           name: Install Maven
           command: ssh $SSH_USER@$SSH_HOST "sudo apt install maven -y"
+#    - run:
+#          name: Clone Repo & Install Application Dependencies
+#         command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project && cd ~/QA-Fundamental_Project"
     - run:
-          name: Clone Repo & Install Application Dependencies
-          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project"
+          name: Compile
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/QA-Fundamental_Project && mvn compile && mvn clean package"
     - run:
-          name: Deploy Application
-          command: ssh $SSH_USER@$SSH_HOST "cd ~/ProjectRecipiesApplication"
+          name: Execute
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/QA-Fundamental_Project && mvn exec:java -Dexec.mainClass=com.qa.project_recipies.ProjectRecipiesApplication"
+     
 workflows:
-  version: 2
+  version: 2.1
   test-and-deploy:
     jobs:
       - test
