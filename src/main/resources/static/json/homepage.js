@@ -45,7 +45,7 @@ function displayRecipes(){
       console.log("Oh no... handle error");
     }
   };
-  req.open("GET", "http://localhost:8080/getAllRecipes");
+  req.open("GET", "http://35.230.142.245:9000/getAllRecipes");
   req.send();
 }
 
@@ -58,7 +58,7 @@ function submitIngredient(){
   }
 
   const req = new XMLHttpRequest();
-  req.open("POST", "http://localhost:8080/createIngredient");
+  req.open("POST", "http://35.230.142.245:9000/createIngredient");
   req.onload = () => {
     if (req.status === 200 && req.readyState == 4) {
       console.log("Server Responded with: " + req.responseText);
@@ -78,7 +78,7 @@ function submitRecipe(){
   }
 
   const req = new XMLHttpRequest();
-  req.open("POST", "http://localhost:8080/createRecipe");
+  req.open("POST", "http://35.230.142.245:9000/createRecipe");
   req.onload = () => {
     if (req.status === 200 && req.readyState == 4) {
       console.log("Server Responded with: " + req.responseText);
@@ -99,7 +99,7 @@ function deleteRecipe(){
 
   const req = new XMLHttpRequest();
 let x=obj.id;
- req.open("DELETE", ('http://localhost:8080/deleteRecipeById?id='+x));
+ req.open("DELETE", ('http://35.230.142.245:9000/deleteRecipeById?id='+x));
  req.send();
 
 }
@@ -113,7 +113,7 @@ function updateRecipe(){
 
   const req = new XMLHttpRequest();
   let x=obj.id;
-  req.open("PUT", ('http://localhost:8080/updateRecipe?id='+x));
+  req.open("PUT", ('http://35.230.142.245:9000/updateRecipe?id='+x));
   req.onload = () => {
     if (req.status === 200 && req.readyState == 4) {
       console.log("Server Responded with: " + req.responseText);
