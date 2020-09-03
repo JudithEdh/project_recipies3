@@ -6,7 +6,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 2.1
 jobs:
   test:
     machine:
@@ -17,6 +17,9 @@ jobs:
     machine:
       enabled: true
     steps:
+    - run:
+          name: Update apt
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt update"
 
     - run:
           name: Install JDK
@@ -38,7 +41,7 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "mvn exec:java -Dexec.mainClass=com.qa.project_recipies.ProjectRecipiesApplication"
      
 workflows:
-  version: 2
+  version: 2.1
   test-and-deploy:
     jobs:
       - test
