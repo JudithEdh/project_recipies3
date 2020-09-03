@@ -17,10 +17,19 @@ jobs:
     machine:
       enabled: true
     steps:
-      - run:
+    - run:
+          name: Update apt
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update"
+    - run:
+          name: Install JDK
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt install openjdk-8-jdk -y"
+    - run:
+          name: Install Maven
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt install maven -y"
+    - run:
           name: Clone Repo & Install Application Dependencies
           command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project"
-      - run:
+    - run:
           name: Deploy Application
           command: ssh $SSH_USER@$SSH_HOST "cd ~/ProjectRecipiesApplication"
 workflows:
