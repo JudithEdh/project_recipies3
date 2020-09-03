@@ -1,0 +1,42 @@
+# Java Gradle CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+# Java Gradle CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+version: 2
+jobs:
+  test:
+    machine:
+      enabled: true
+    steps:
+      - run: echo "Tests can run here!"
+  deploy:
+    machine:
+      enabled: true
+    steps:
+    - run:
+          name: Update apt
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update"
+    - run:
+          name: Install JDK
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt install openjdk-8-jdk -y"
+    - run:
+          name: Install Maven
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt install maven -y"
+    - run:
+          name: Clone Repo & Install Application Dependencies
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project"
+    - run:
+          name: Deploy Application
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/ProjectRecipiesApplication"
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
