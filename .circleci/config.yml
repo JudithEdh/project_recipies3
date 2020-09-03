@@ -19,7 +19,7 @@ jobs:
     steps:
     - run:
           name: Update apt
-          command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update"
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt update"
     - run:
           name: Install JDK
           command: ssh $SSH_USER@$SSH_HOST "sudo apt install openjdk-8-jdk -y"
