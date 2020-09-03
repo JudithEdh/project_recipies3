@@ -29,10 +29,7 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "sudo apt install maven -y"
     - run:
           name: Clone Repo & Install Application Dependencies
-          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project"
-    - run:
-          name: Change Directory
-          command: ssh $SSH_USER@$SSH_HOST "cd ~/QA-Fundamental_Project"
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project && cd ~/QA-Fundamental_Project"
     - run:
           name: Compile
           command: ssh $SSH_USER@$SSH_HOST "mvn compile && mvn clean package"
