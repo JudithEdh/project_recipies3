@@ -27,12 +27,12 @@ jobs:
     - run:
           name: Install Maven
           command: ssh $SSH_USER@$SSH_HOST "sudo apt install maven -y"
+   # - run:
+   #       name: Clone Repo & Install Application Dependencies
+   #       command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project && cd ~/QA-Fundamental_Project"
     - run:
-          name: Clone Repo & Install Application Dependencies
-          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/JudithEdh/QA-Fundamental_Project && cd ~/QA-Fundamental_Project"
-  #  - run:
-  #       name: Update Repo 
-  #      command: ssh $SSH_USER@$SSH_HOST "cd ~/QA-Fundamental_Project && git pull origin master"
+         name: Update Repo 
+        command: ssh $SSH_USER@$SSH_HOST "cd ~/QA-Fundamental_Project && git pull origin master"
 
     - run:
           name: Compile
