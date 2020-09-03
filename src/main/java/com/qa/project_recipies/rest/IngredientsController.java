@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -32,12 +33,11 @@ public class IngredientsController {
         return new ResponseEntity<IngredientDTO>(this.ingredientsService.createIngredient(ingredient), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/deleteIngredient/{id}")
-    public ResponseEntity<?> deleteIngredient(@PathVariable Long id){
-        return this.ingredientsService.deleteIngredientsById(id)
-                ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
-                : ResponseEntity.noContent().build();
+    @DeleteMapping("/deleteIngredientsById")
+    public Boolean deleteIngredients(@PathParam("id") Long id){
+        return this.ingredientsService.deleteIngredientsById(id);
     }
+
 
     @GetMapping("/getIngredientById/{id}")
     public ResponseEntity<IngredientDTO> getIngredientById(@PathVariable Long id){

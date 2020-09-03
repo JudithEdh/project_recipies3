@@ -66,6 +66,15 @@ function displayId(){
           let id=document.createElement('p');
           id.textContent = "Id: " + el.id;
           elem.appendChild(id);
+          el.ingredients.forEach(ingredient => {
+            console.log(ingredient) // print all ingredients for each recipe
+            let name = document.createElement('p');
+            let ingredientId= document.createElement('p');
+            name.textContent = "Ingredient: " + ingredient.name;
+            ingredientId.textContent = "Id: " + ingredient.id;
+            elem.appendChild(name);
+            elem.appendChild(ingredientId);
+          })
           document.body.appendChild(elem);
         });
       } else {
@@ -132,6 +141,21 @@ function deleteRecipe(){
 let x=obj.id;
  req.open("DELETE", ('http://35.230.142.245:9000/deleteRecipeById?id='+x));
  req.send();
+
+}
+
+function deleteIngredient(){
+  let elements = document.getElementById("deleteIngredient").elements;
+  let obj ={};
+  for(let i = 0 ; i < elements.length - 1 ; i++){
+    let item = elements.item(i);
+    obj[item.name] = item.value;
+  }
+
+  const req = new XMLHttpRequest();
+  let x=obj.id;
+  req.open("DELETE", ('http://35.230.142.245:9000/deleteIngredientsById?id='+x));
+  req.send();
 
 }
 function updateRecipe(){
