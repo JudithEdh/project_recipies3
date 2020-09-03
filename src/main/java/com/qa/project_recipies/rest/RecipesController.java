@@ -32,11 +32,8 @@ public class RecipesController {
     }
 
     @DeleteMapping("/deleteRecipeById")
-    public ResponseEntity<?> deleteRecipe(@PathParam("id") Long id){
-
-        return this.recipesService.deleteRecipesById(id)
-                ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
-                : ResponseEntity.noContent().build();
+    public Boolean deleteRecipe(@PathParam("id") Long id){
+        return this.recipesService.deleteRecipesById(id);
     }
 
     @GetMapping("/getRecipeById/{id}")

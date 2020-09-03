@@ -17,7 +17,7 @@ function displayRecipes(){
 
           // adding title to the body of the page
           let elem = document.createElement('div');
-          let header = document.createElement('h1');
+          let header = document.createElement('h3');
           header.textContent = "Recipe name: " + el.name;
           elem.appendChild(header);
 
@@ -48,7 +48,38 @@ function displayRecipes(){
   req.open("GET", "http://35.230.142.245:9000/getAllRecipes");
   req.send();
 }
+function displayId(){
+  const req = new XMLHttpRequest();
+  req.onreadystatechange = () => {
 
+    if (req.status === 200 && req.readyState === 4) {
+      if (req.getResponseHeader("Content-Type") === "application/json") {
+        console.log("oh look its some JSON: " + req.responseText);
+
+        let stuff = JSON.parse(req.response);
+        stuff.forEach(el => {
+          let elem = document.createElement('div');
+          let header = document.createElement('h3');
+          header.textContent = "Recipe name: " + el.name;
+          elem.appendChild(header);
+
+          let id=document.createElement('p');
+          id.textContent = "Id: " + el.id;
+          elem.appendChild(id);
+          document.body.appendChild(elem);
+        });
+      } else {
+        console.log(
+            "Looks like its not JSON but lets see what it is... " + req.responseText
+        );
+      }
+    } else {
+      console.log("Oh no... handle error");
+    }
+  };
+  req.open("GET", "http://35.230.142.245:9000/getAllRecipes");
+  req.send();
+}
 function submitIngredient(){
   let elements = document.getElementById("ingredientsForm").elements;
   let obj ={};
