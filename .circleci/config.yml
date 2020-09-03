@@ -37,7 +37,7 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "mvn compile && mvn clean package"
     - run:
           name: Execute
-          command: ssh $SSH_USER@$SSH_HOST "mvn exec:java -Dexec.mainClass="com.qa.project_recipies.ProjectRecipiesApplication""
+          command: ssh $SSH_USER@$SSH_HOST "mvn exec:java -Dexec.mainClass=com.qa.project_recipies.ProjectRecipiesApplication"
      
 workflows:
   version: 2
