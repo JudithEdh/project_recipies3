@@ -45,7 +45,7 @@ function displayRecipes(){
       console.log("Oh no... handle error");
     }
   };
-  req.open("GET", "http://35.230.142.245:9000/getAllRecipes");
+  req.open("GET", "http://34.89.53.85:9000/getAllRecipes");
   req.send();
 }
 function displayId(){
@@ -86,7 +86,7 @@ function displayId(){
       console.log("Oh no... handle error");
     }
   };
-  req.open("GET", "http://35.230.142.245:9000/getAllRecipes");
+  req.open("GET", "http://34.89.53.85:9000/getAllRecipes");
   req.send();
 }
 function submitIngredient(){
@@ -98,7 +98,7 @@ function submitIngredient(){
   }
 
   const req = new XMLHttpRequest();
-  req.open("POST", "http://35.230.142.245:9000/createIngredient");
+  req.open("POST", "http://34.89.53.85:9000/createIngredient");
   req.onload = () => {
     if (req.status === 200 && req.readyState == 4) {
       console.log("Server Responded with: " + req.responseText);
@@ -118,7 +118,7 @@ function submitRecipe(){
   }
 
   const req = new XMLHttpRequest();
-  req.open("POST", "http://35.230.142.245:9000/createRecipe");
+  req.open("POST", "http://34.89.53.85:9000/createRecipe");
   req.onload = () => {
     if (req.status === 200 && req.readyState == 4) {
       console.log("Server Responded with: " + req.responseText);
@@ -139,7 +139,7 @@ function deleteRecipe(){
 
   const req = new XMLHttpRequest();
 let x=obj.id;
- req.open("DELETE", ('http://35.230.142.245:9000/deleteRecipeById?id='+x));
+ req.open("DELETE", ('http://34.89.53.85:9000/deleteRecipeById?id='+x));
  req.send();
 
 }
@@ -154,7 +154,7 @@ function deleteIngredient(){
 
   const req = new XMLHttpRequest();
   let x=obj.id;
-  req.open("DELETE", ('http://35.230.142.245:9000/deleteIngredientsById?id='+x));
+  req.open("DELETE", ('http://34.89.53.85:9000/deleteIngredientsById?id='+x));
   req.send();
 
 }
@@ -168,7 +168,7 @@ function updateRecipe(){
 
   const req = new XMLHttpRequest();
   let x=obj.id;
-  req.open("PUT", ('http://35.230.142.245:9000/updateRecipe?id='+x));
+  req.open("PUT", ('http://34.89.53.85:9000/updateRecipe?id='+x));
   req.onload = () => {
     if (req.status === 200 && req.readyState == 4) {
       console.log("Server Responded with: " + req.responseText);
