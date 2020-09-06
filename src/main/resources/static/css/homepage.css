@@ -1,0 +1,14 @@
+body {
+    background-color: whitesmoke;
+  }
+  h1 {
+    color:white;
+    vertical-align: middle;
+    margin-left: 20px;
+  }
+  header{
+    background-color: rgb(112, 129, 202);
+    height: 100px;
+    text-align: center;
+    
+  }
