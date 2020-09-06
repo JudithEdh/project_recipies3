@@ -46,7 +46,7 @@ jobs:
     - run:
           name: Execute
           command: ssh $SSH_USER@$SSH_HOST "cd ~/QA-Fundamental_Project && mvn exec:java -Dexec.mainClass=com.qa.project_recipies.ProjectRecipiesApplication"
-    - run: echo "End!"
+          no_output_timeout: 60m
      
 workflows:
   version: 2
