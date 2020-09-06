@@ -35,9 +35,9 @@ jobs:
           name: Update Repo 
           command: ssh $SSH_USER@$SSH_HOST "cd ~/QA-Fundamental_Project && git pull origin master"
           
-    - run:
-          name: Stop Java 
-          command: ssh $SSH_USER@$SSH_HOST "pkill java"
+ #   - run:
+  #        name: Stop Java 
+   #       command: ssh $SSH_USER@$SSH_HOST "pkill java"
 
     - run:
           name: Compile
