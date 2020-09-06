@@ -77,7 +77,7 @@ The following image shows the multi-tier architecture of the project.
 
 ![Project Components](multi.png)
 
-The user is only able to view the presentation layer which consists of seven web pages acceccible through the following link ([Homepage](http://35.230.142.245:9000/html/RecipesList.html))
+The user is only able to view the presentation layer which consists of seven web pages acceccible through the following link ([Homepage](http://34.89.53.85:9000/html/RecipesList.html))
 
 ![Home Page](home.png)
 ### 2. CI Server
