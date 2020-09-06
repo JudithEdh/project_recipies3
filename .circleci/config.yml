@@ -18,6 +18,10 @@ jobs:
     machine:
       enabled: true
     steps:
+     - run:
+          name: stop java
+          command: ssh $SSH_USER@$SSH_HOST "pkill java"
+          
     - run:
           name: Update apt
           command: ssh $SSH_USER@$SSH_HOST "sudo apt update"
