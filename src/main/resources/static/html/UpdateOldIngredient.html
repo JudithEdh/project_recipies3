@@ -2,22 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Ingredient</title>
-    <script src="../json/NewIngredient.js"></script>
+    <title>Update Ingredient</title>
+    <script src="../json/UpdateOldIngredient.js"></script>
 </head>
 <body>
 <a href="RecipesList.html">Homepage</a>
 
-<h1>Add a new ingredient to your recipe</h1>
+<h1>Update an existing Ingredient</h1>
 
 <form id="ingredientsForm">
-    <label for="name">Ingredient:</label><br>
+    <label for="id">Ingredient id:</label><br>
+    <input type="text" id="id" name="id"><br>
+    <label for="name">Name:</label><br>
     <input type="text" id="name" name="name"><br>
     <label for="quantity">Quantity:</label><br>
     <input type="text" id="quantity" name="quantity"><br><br>
     <label for="recipeId">Recipe ID:</label><br>
     <input type="text" id="recipeId" name="recipeId"><br><br>
-    <input type="submit" onclick="submitIngredient()" value="Submit">
+    <input type="submit" onclick="updateIngredient()" value="Submit">
 </form>
 
 

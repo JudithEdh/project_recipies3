@@ -3,7 +3,9 @@ package com.qa.project_recipies.rest;
 
 import com.qa.project_recipies.domain.Ingredient;
 
+import com.qa.project_recipies.domain.Recipe;
 import com.qa.project_recipies.dto.IngredientDTO;
+import com.qa.project_recipies.dto.RecipeDTO;
 import com.qa.project_recipies.service.IngredientsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,10 +46,9 @@ public class IngredientsController {
         return ResponseEntity.ok(this.ingredientsService.findIngredientById(id));
     }
 
-    @PutMapping("/updateIngredient/{id}")
-    public ResponseEntity<IngredientDTO> updateIngredient(@PathVariable Long id, @RequestBody Ingredient ingredient){
+    @PutMapping("/updateIngredient")
+    public ResponseEntity<IngredientDTO> updateIngredient(@PathParam("id") Long id, @RequestBody Ingredient ingredient){
         return ResponseEntity.ok(this.ingredientsService.updateIngredient(id, ingredient));
     }
-
 }
 
