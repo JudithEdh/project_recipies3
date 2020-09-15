@@ -9,7 +9,7 @@ function updateRecipe(){
 
   const req = new XMLHttpRequest();
   let x=obj.id;
-  req.open("PUT", ('http://35.230.142.245:9000/updateRecipe?id='+x));
+  req.open("PUT", ('http://localhost:9000/updateRecipe?id='+x));
   req.onload = () => {
     if (req.status === 200 && req.readyState == 4) {
       console.log("Server Responded with: " + req.responseText);

@@ -36,6 +36,6 @@ function displayId(){
       console.log("Oh no... handle error");
     }
   };
-  req.open("GET", "http://35.230.142.245:9000/getAllRecipes");
+  req.open("GET", "http://localhost:9000/getAllRecipes");
   req.send();
 }

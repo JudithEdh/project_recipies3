@@ -11,6 +11,7 @@
     <groupId>com.qa</groupId>
     <artifactId>project_recipies</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>project_recipies</name>
     <description>QA SFIA Project 1</description>
 

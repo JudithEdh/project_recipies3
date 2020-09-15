@@ -9,7 +9,7 @@ function deleteRecipe(){
 
   const req = new XMLHttpRequest();
 let x=obj.id;
- req.open("DELETE", ('http://35.230.142.245:9000/deleteRecipeById?id='+x));
+ req.open("DELETE", ('http://localhost:9000/deleteRecipeById?id='+x));
  req.send();
 
 }
